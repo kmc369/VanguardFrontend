@@ -1,5 +1,5 @@
 import { User } from "./User";
-
+import { GoalFormComponent } from "../goal-form/goal-form.component";
 export class Goal {
 
   id : number;
@@ -12,7 +12,7 @@ export class Goal {
   user: User;
   
   
- constructor(id=0,name='Buy A Home',description='I want to buy a home costing 400k',image= 'image.jpe', date: string = '2000-01-01',amount=200.00,saved=5000.00, user: User=new User()){
+ constructor(id=0,name='',description='',image= '', date: string = '2000-01-01',amount=200.00,saved=5000.00, user: User=new User()){
 
   this.id=id;
   this.name=name;

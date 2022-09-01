@@ -1,0 +1,20 @@
+.goalform{
+ 
+  margin-left: 250px;
+  margin-right: 250px;
+  text-align: center;
+  border-color: lightgray;
+  border-radius: 2px;
+  margin-top: 150px;
+  margin-bottom: 150px;
+}
+
+.header{
+  background-color: rgb(80, 80, 214);
+  size:40px;
+}
+
+.deletebutton{
+  background-color: rgb(88, 88, 187);
+  margin-left: 10px;
+}
