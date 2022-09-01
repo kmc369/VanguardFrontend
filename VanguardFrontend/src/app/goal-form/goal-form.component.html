@@ -1,5 +1,5 @@
 <div class="goalform mat-elevation-z4">
-  <p-table [value]="goalList">
+  <p-table [value]="goalList" [scrollable]="true" scrollHeight="400px">
     <ng-template pTemplate="header">
       <tr>
         <th>name</th>
@@ -20,7 +20,7 @@
         <td>{{ goal.amount }}</td>
         <td>{{ goal.saved }}</td>
         <td>
-          <button class="deletebutton" mat-flat-button (click)="dosomething()">
+          <button class="deletebutton" mat-flat-button (click)="deleteRow(goal)">
             <mat-icon style="color: black">delete_forever</mat-icon>
           </button>
         </td>

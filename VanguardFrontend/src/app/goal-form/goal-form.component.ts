@@ -12,7 +12,7 @@ import { TableModule } from 'primeng/table';
 export class GoalFormComponent implements OnInit {
 
   goalList: Array<Goal> = [];
-
+  id !:number;
 
   constructor(private service: GoalServiceService) {
   
@@ -26,8 +26,20 @@ export class GoalFormComponent implements OnInit {
     });
   }
 
-  dosomething(){
-    
+  findAll(){
+    this.service.findAll().subscribe((data)=>{
+      this.goalList=data;
+    });
   }
 
+  deleteRow(goal:Goal){
+    this.service.deleteRow(goal.id).subscribe(data=>{
+      console.log('success',data)
+      this.findAll();
+    })
+
+
+
 }
+} 
+

@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  findAllUrl : 'http://localhost:8081/goals/allGoals',
+  deleteUrl : 'http://localhost:8081/goals/',
 };
 
 /*
