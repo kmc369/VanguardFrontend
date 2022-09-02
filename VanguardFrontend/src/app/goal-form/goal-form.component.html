@@ -18,11 +18,10 @@
       <tr>
         <td>{{ goal.name }}</td>
         <td>{{ goal.description }}</td>
-      
-        <img src={{goal.image}} alt="img" width="100" height="100">
+       <img src={{goal.image}} alt="img" width="80" height="80" class="img mat-elevation-z4" >
         <td>{{ goal.date }}</td>
-        <td>{{ goal.amount }}</td>
-        <td>{{ goal.saved }}</td>
+        <td>{{ goal.amount | currency}}</td>
+        <td>{{ goal.saved | currency }}</td>
         <td>
           <button class="deletebutton" mat-flat-button (click)="deleteRow(goal)">
             <mat-icon style="color:white;">delete_forever</mat-icon>

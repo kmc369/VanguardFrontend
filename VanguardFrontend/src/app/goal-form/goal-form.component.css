@@ -1,6 +1,6 @@
 .goalform {
-  margin-left: 150px;
-  margin-right: 150px;
+  margin-left: 200px;
+  margin-right: 200px;
   text-align: center;
   border-color: lightgray;
   border-radius: 2px;
@@ -15,9 +15,12 @@
 .deletebutton {
   background-color: rgb(88, 88, 187);
   margin-left: 10px;
-
 }
 
 .name {
   background-color: rgb(80, 80, 214);
+}
+img {
+  margin-right: 5px;
+  margin-top: 8px;
 }
