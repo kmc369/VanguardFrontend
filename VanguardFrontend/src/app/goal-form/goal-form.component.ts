@@ -14,6 +14,8 @@ export class GoalFormComponent implements OnInit {
   goalList: Array<Goal> = [];
   id !:number;
 
+  
+
   constructor(private service: GoalServiceService) {
   
    }
