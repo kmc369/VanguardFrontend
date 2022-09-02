@@ -1,24 +1,22 @@
 .back {
   background-color: white;
-  color:black;
+  color: black;
 }
-
-
 
 mat-toolbar {
   background-color: #004a9f;
-  color:white;
+  color: white;
 }
 
-mat-sidenav{
-  margin:16px;
-  width:200px;
+mat-sidenav {
+  margin: 16px;
+  width: 200px;
   border-right: #002b5c;
-  color:white;
+  color: white;
   border-radius: 10px;
-  padding:16px;
+  padding: 16px;
   text-align: center;
-  background-color:#002b5c;
+  background-color: #002b5c;
 }
 
 .content {
@@ -27,20 +25,29 @@ mat-sidenav{
   margin-left: 32px;
   display: flex;
   justify-content: center;
-  border-radius: 10px;
-  
+  align-items: center;
 }
 
 mat-sidenav-container {
   height: calc(100vh - 65px);
 }
 
-
 .menu-button {
   width: 100px;
-  display:flex;
+  display: flex;
   align-items: center;
   justify-content: flex-start;
   font-size: 1rem;
 }
+mat-icon {
+  margin-right: 10px;
+}
+mat-divider {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.navgoal{
+  flex: 1 1 auto;
 
+}
