@@ -1,4 +1,25 @@
-mat-label {
-  color:rgb(211, 211, 211);
+
+
+.form{
+margin-left: 300px;
+margin-right: 300px;
+margin-top: 100px;
+text-align: center;
+border-radius: 6px;
+
+
 }
 
+mat-divider {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.submitbutton{
+
+  background-color:  #004a9f;
+  color:white;
+  margin-bottom: 10px;
+  padding-right: 35px;
+}

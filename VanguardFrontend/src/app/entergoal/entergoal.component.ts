@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Goal } from '../models/Goal';
+import { GoalFormComponent } from '../goal-form/goal-form.component';
+import { GoalServiceService } from '../goal-service.service';
 @Component({
   selector: 'app-entergoal',
   templateUrl: './entergoal.component.html',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EntergoalComponent implements OnInit {
 
-  constructor() { }
+  goal !:Goal;
+  constructor(private service : GoalServiceService) { }
 
   ngOnInit(): void {
+  }
+
+  save(goal:Goal){
+    this.service.save(goal).subscribe(data =>{
+      console.log
+    });
   }
 
 }

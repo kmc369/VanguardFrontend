@@ -18,7 +18,7 @@ export class GoalServiceService {
     return this.httpclient.get<Goal[]>(environment.findAllUrl)
    }
    save(goal : Goal){
-    //return this.httpclient.post<Goal>(this.url,goal)
+    return this.httpclient.post<Goal>(environment.saveUrl,goal)
    }
 
    deleteRow(id:number){
