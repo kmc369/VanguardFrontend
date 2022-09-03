@@ -3,6 +3,7 @@ import { GoalServiceService } from '../goal-service.service';
 import { Goal } from '../models/Goal';
 import { BrowserModule } from '@angular/platform-browser';
 import { TableModule } from 'primeng/table';
+import { getMatIconFailedToSanitizeLiteralError } from '@angular/material/icon';
 
 @Component({
   selector: 'app-goal-form',
@@ -39,9 +40,8 @@ export class GoalFormComponent implements OnInit {
       console.log('success',data)
       this.findAll();
     })
-
-
-
 }
+
+
 } 
 

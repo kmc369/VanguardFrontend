@@ -36,6 +36,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
+import { EditgoalComponent } from './editgoal/editgoal.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import {MatSelectModule} from '@angular/material/select';
     GoalFormComponent,
     NavbarComponent,
     EntergoalComponent,
+    EditgoalComponent,
  
   ],
   imports: [
