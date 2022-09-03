@@ -21,15 +21,18 @@ mat-sidenav {
 
 .content {
   height: calc(100vh - 98px);
-  margin: 16px;
+  border-radius: 5px;
   margin-left: 32px;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 12px;
+
 }
 
 mat-sidenav-container {
-  height: calc(100vh - 65px);
+  height: calc(100vh - 80px);
+  
 }
 
 .menu-button {
@@ -47,7 +50,6 @@ mat-divider {
   margin-bottom: 16px;
   background-color: rgba(255, 255, 255, 0.5);
 }
-.navgoal{
+.navgoal {
   flex: 1 1 auto;
-
 }
