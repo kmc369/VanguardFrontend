@@ -6,7 +6,9 @@ export const environment = {
   production: false,
   findAllUrl : 'http://localhost:8081/goals/allGoals',
   deleteUrl : 'http://localhost:8081/goals/',
-  saveUrl : 'http://localhost:8081/goals'
+  saveUrl : 'http://localhost:8081/goals',
+  editUrl: 'http://localhost:8081/goals/'
+
 };
 
 /*

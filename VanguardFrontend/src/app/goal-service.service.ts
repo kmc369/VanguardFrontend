@@ -25,4 +25,8 @@ export class GoalServiceService {
      return this.httpclient.delete(environment.deleteUrl +id)
    
    }
+
+   editGoal(goal:Goal){
+   return this.httpclient.put(environment.editUrl , goal)
+   }
 }

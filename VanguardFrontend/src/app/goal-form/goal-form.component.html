@@ -14,7 +14,18 @@
     </ng-template>
     <ng-template pTemplate="body" let-goal>
       <tr>
-        <td>{{ goal.name }}</td>
+   
+       <td>
+          
+          <div *ngIf="goal.isEdit">
+              <input pInputText type="text"[(ngModel)]="goal.name" class="form-control">
+
+          </div>
+
+          <div *ngIf="!goal.isEdit">
+              {{goal.name}}
+          </div> </td>
+       
         <td>{{ goal.description }}</td>
         <img
           src="{{ goal.image }}"
@@ -34,6 +45,19 @@
           >
             <mat-icon style="color: white">delete_forever</mat-icon>
           </button>
+        </td>
+
+        <td>
+          <div *ngIf="goal.isEdit">
+          <button class="editbutton" mat-mini-fab >save</button>
+          <button class="editbutton" mat-mini-fab >cancel</button>
+          </div>
+          <div *ngIf="!goal.isEdit">
+            <button class="deletebutton" mat-flat-button (click)="edit(goal)" >
+              <mat-icon style="color: white">edit</mat-icon>
+            </button>
+          </div >
+         
         </td>
       </tr>
     </ng-template>

@@ -3,6 +3,7 @@ import { Goal } from '../models/Goal';
 import { GoalFormComponent } from '../goal-form/goal-form.component';
 import { GoalServiceService } from '../goal-service.service';
 import { User } from '../models/User';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,7 +15,7 @@ export class EntergoalComponent implements OnInit {
 
   goal :Goal = new Goal();
   user :User = new User();
-  constructor(private service : GoalServiceService) { }
+  constructor(private service : GoalServiceService, private router :Router) { }
 
   ngOnInit(): void {
   }
@@ -23,6 +24,11 @@ export class EntergoalComponent implements OnInit {
     this.service.save(goal).subscribe(data =>{
       console.log
     });
+
+  }
+
+  gohome(){
+    this.router.navigate(['']);
   }
 
 }

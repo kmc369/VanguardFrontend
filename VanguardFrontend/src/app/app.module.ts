@@ -15,6 +15,8 @@ import { ToastModule} from 'primeng/toast';
 import { ToolbarModule } from 'primeng/toolbar';
 import { FileUploadModule } from 'primeng/fileupload';
 import { DialogModule } from 'primeng/dialog';
+import { InputNumberModule} from 'primeng/inputnumber';
+import { InputTextModule} from 'primeng/inputtext';
 
 //components
 import { AppComponent } from './app.component';
@@ -35,7 +37,7 @@ import { MatDividerModule } from '@angular/material/divider';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import {MatSelectModule} from '@angular/material/select';
+import { MatSelectModule} from '@angular/material/select';
 import { EditgoalComponent } from './editgoal/editgoal.component';
 
 @NgModule({
@@ -63,11 +65,12 @@ import { EditgoalComponent } from './editgoal/editgoal.component';
     MatIconModule,
     MatSidenavModule,
     MatDividerModule,
-    
+    InputNumberModule,
     MatFormFieldModule,
     MatInputModule, 
     ReactiveFormsModule,
     MatSelectModule,
+    InputTextModule,
    
   ],
   providers: [],

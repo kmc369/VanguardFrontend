@@ -32,6 +32,7 @@ export class GoalFormComponent implements OnInit {
   findAll(){
     this.service.findAll().subscribe((data)=>{
       this.goalList=data;
+      
     });
   }
 
@@ -40,6 +41,10 @@ export class GoalFormComponent implements OnInit {
       console.log('success',data)
       this.findAll();
     })
+}
+
+edit(goal:any){
+  goal.isEdit = true;
 }
 
 
