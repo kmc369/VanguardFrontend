@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Goal } from '../models/Goal';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { GoalServiceService } from '../goal-service.service';
 
 @Component({
@@ -10,14 +10,22 @@ import { GoalServiceService } from '../goal-service.service';
 })
 export class EditgoalComponent implements OnInit {
 
+  id: number;
   goal:Goal = new Goal();
-  constructor(private service: GoalServiceService, private router: Router) { }
 
-  ngOnInit(): void {
+  
+  constructor(private service: GoalServiceService, private router: Router, private route : ActivatedRoute) { 
+
   }
 
-  update(goal:Goal){
-    this.service.editGoal(goal).subscribe(date=> {
+  ngOnInit(): void {
+ 
+    
+  }
+
+  update(){
+
+    this.service.editGoal(this.goal).subscribe(date=> {
       console.log(date)
     })
 
@@ -27,5 +35,7 @@ export class EditgoalComponent implements OnInit {
   gohome(){
     this.router.navigate(['']);
   }
+
+
 
 }

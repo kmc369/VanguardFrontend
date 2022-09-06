@@ -17,7 +17,7 @@ export class GoalServiceService {
    findAll(): Observable<Goal[]>{
     return this.httpclient.get<Goal[]>(environment.findAllUrl)
    }
-   save(goal : Goal){
+   save(goal : Goal) : Observable<Goal>{
     return this.httpclient.post<Goal>(environment.saveUrl,goal)
    }
 
@@ -26,7 +26,11 @@ export class GoalServiceService {
    
    }
 
-   editGoal(goal:Goal){
-   return this.httpclient.put(environment.editUrl , goal)
+   editGoal(goal: Goal): Observable<any>{
+   return this.httpclient.put(environment.editUrl + goal.id, goal)
    }
+
+
+
 }
+
