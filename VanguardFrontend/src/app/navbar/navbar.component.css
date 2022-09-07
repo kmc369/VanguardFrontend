@@ -53,3 +53,12 @@ mat-divider {
 .navgoal {
   flex: 1 1 auto;
 }
+.avatar {
+  
+  margin-bottom: 15px;
+
+}
+
+.name{
+  opacity: 0.5px;
+}

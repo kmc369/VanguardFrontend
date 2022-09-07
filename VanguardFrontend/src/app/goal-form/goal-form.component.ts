@@ -4,7 +4,7 @@ import { Goal } from '../models/Goal';
 import { BrowserModule } from '@angular/platform-browser';
 import { TableModule } from 'primeng/table';
 import { getMatIconFailedToSanitizeLiteralError } from '@angular/material/icon';
-import { ControlValueAccessor, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { ControlValueAccessor, FormBuilder, FormControl, FormGroup, NgForm, Validators, FormArray } from '@angular/forms';
 import { ignoreElements } from 'rxjs';
 import  { ModalDismissReasons , NgbModal } from '@ng-bootstrap/ng-bootstrap'
 import { find } from 'rxjs';
@@ -22,8 +22,8 @@ export class GoalFormComponent implements OnInit {
   closeResult:String;
   //editForm : FormGroup ;
   user: User = new User();
-
-  editForm = new FormGroup({
+  editForm :FormGroup;
+ /* editForm = new FormGroup({
     goalid: new FormGroup('', Validators.required),
     goalname: new FormGroup('', Validators.required),
     description: new FormGroup('', Validators.required),
@@ -31,11 +31,13 @@ export class GoalFormComponent implements OnInit {
     date: new FormGroup('', Validators.required),
     amount: new FormGroup('', Validators.required),
     saved: new FormGroup('', Validators.required),
-    user: new FormGroup('', Validators.required),
-          userid: new FormGroup(''),
-          username: new FormGroup('')
+   
+        user: new FormGroup({
+          userid: new FormControl('', Validators.required),
+          username: new FormGroup('',Validators.required),
   })
-
+})
+*/
 
 
   constructor(private service: GoalServiceService,private modalService:NgbModal, private fb: FormBuilder ) {
@@ -47,8 +49,28 @@ export class GoalFormComponent implements OnInit {
       this.goalList = data;
       console.log(this.goalList)
   
+
+
+      this.editForm = new FormGroup({
+        goalid: new FormControl('', Validators.required),
+        goalname: new FormControl('', Validators.required),
+        description: new FormControl('', Validators.required),
+        image: new FormControl('', Validators.required),
+        date: new FormControl('', Validators.required),
+        amount: new FormControl('', Validators.required),
+        saved: new FormControl('', Validators.required),
+       
+      /*  user: new FormGroup({
+          userid: new FormControl('', Validators.required),
+          username: new FormGroup('',Validators.required),
+  })*/
+    })
+      
+  
+
+
           
-      this.editForm = this.fb.group({
+     /* this.editForm = this.fb.group({
         goalid: [''],
         goalname: [''],
         description: [''],
@@ -61,7 +83,7 @@ export class GoalFormComponent implements OnInit {
               username: ['']
         }
       } );
-
+*/
     
     });
 
@@ -108,6 +130,7 @@ update(){
 
   this.service.editGoal(this.goal).subscribe(date=> {
     console.log(date)
+    this.findAll();
   })
 
 }
@@ -135,6 +158,7 @@ openEdit(targetModal, goal: Goal) {
    centered: true,
    backdrop: 'static',
    size: 'lg'
+   
  });
 
  this.editForm.patchValue({
@@ -145,14 +169,12 @@ openEdit(targetModal, goal: Goal) {
   date: goal.date,
   amount: goal.amount,
   saved: goal.saved,
-  
-  userid: goal.user.id,
-  username: goal.user.username
+ 
   
 
 
 });
-console.log(this.editForm)
+this.findAll();
 
 }
 

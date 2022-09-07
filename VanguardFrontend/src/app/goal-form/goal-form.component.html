@@ -41,7 +41,7 @@
         <td>
           <button
             class="deletebutton"
-            mat-flat-button
+            mat-mini-fab
             (click)="deleteRow(goal)"
           >
             <mat-icon style="color: white">delete_forever</mat-icon>
@@ -61,7 +61,7 @@
           </div>
 
           <div *ngIf="!goal.isEdit">
-            <button class="deletebutton" mat-flat-button (click)="edit(goal)">
+            <button class="deletebutton" mat-mini-fab (click)="edit(goal)">
               <mat-icon style="color: white">edit</mat-icon>
             </button>
           </div>
@@ -197,14 +197,14 @@
         <div class="form-group">
           <mat-form-field appearance="fill">
             <mat-label>Goal Id</mat-label>
-            <input class="form-control" matInput type="number" formControlName="goalid" />
+            <input class="form-control" matInput type="number" formControlName="goalid" [(ngModel)]="goal.id"/>
           </mat-form-field>
         </div>
 
         <div class="form-group">
         <mat-form-field appearance="fill">
           <mat-label>Goal Name</mat-label>
-          <input class="form-control" matInput type="text" formControlName="goalname" />
+          <input class="form-control" matInput type="text" formControlName="goalname" [(ngModel)]="goal.name"/>
         </mat-form-field>
       </div>
         <div class="form-group">
@@ -213,7 +213,7 @@
             <textarea class="form-control"
               matInput
               type="text"
-              formControlName="description"
+              formControlName="description" [(ngModel)]="goal.description"
           
             ></textarea>
           </mat-form-field>
@@ -222,14 +222,14 @@
         <div class="form-group">
           <mat-form-field appearance="fill">
             <mat-label>Image</mat-label>
-            <input class="form-control" matInput type="url" formControlName="image"  />
+            <input class="form-control" matInput type="url" formControlName="image" [(ngModel)]="goal.image" />
           </mat-form-field>
         </div>
 
         <div class="form-group">
           <mat-form-field appearance="fill">
             <mat-label>Date</mat-label>
-            <input class="form-control" matInput type="date" formControlName="date" />
+            <input class="form-control" matInput type="date" formControlName="date" [(ngModel)]="goal.date" />
           </mat-form-field>
         </div>
 
@@ -239,7 +239,7 @@
             <input class="form-control"
               matInput
               type="number"
-              formControlName="amount"
+              formControlName="amount" [(ngModel)]="goal.amount"
         
             />
             <span matPrefix>$&nbsp;</span>
@@ -253,7 +253,7 @@
             <input class="form-control"
               matInput
               type="number"
-              formControlName="saved"
+              formControlName="saved" [(ngModel)]="goal.saved"
             
             />
             <span matPrefix>$&nbsp;</span>
@@ -261,13 +261,17 @@
           </mat-form-field>
         </div>
 
+        
+
+      
+
         <div class="form-group">
           <mat-form-field appearance="fill">
             <mat-label>userId</mat-label>
             <input class="form-control"
               matInput
               type="number"
-              formControlName="userid" [value]="goal.user.id"
+              [value]="goal.user.id"
            
             />
           </mat-form-field>
@@ -279,16 +283,18 @@
             <input class="form-control"
               matInput
               type="text"
-              formControlName="username" [value]="goal.user.username"
+             [value]="goal.user.username"
             
             />
           </mat-form-field>
         </div>
+   
         <mat-divider></mat-divider>
         <div>
          
           <button pButton>submit</button>
         </div>
+     
       </form>
     </div>
   </ng-template>
