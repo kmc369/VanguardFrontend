@@ -4,10 +4,11 @@ import { Goal } from '../models/Goal';
 import { BrowserModule } from '@angular/platform-browser';
 import { TableModule } from 'primeng/table';
 import { getMatIconFailedToSanitizeLiteralError } from '@angular/material/icon';
-import { FormBuilder, FormGroup, NgForm } from '@angular/forms';
+import { ControlValueAccessor, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ignoreElements } from 'rxjs';
 import  { ModalDismissReasons , NgbModal } from '@ng-bootstrap/ng-bootstrap'
 import { find } from 'rxjs';
+import { User } from '../models/User';
 @Component({
   selector: 'app-goal-form',
   templateUrl: './goal-form.component.html',
@@ -20,21 +21,20 @@ export class GoalFormComponent implements OnInit {
   id: number;
   closeResult:String;
   editForm : FormGroup ;
+  user: User = new User();
 
 
 
-  constructor(private service: GoalServiceService,private modalService:NgbModal, private fb: FormBuilder) {
-    this.editForm = fb.group({
-      title: fb.control('initial value')
-  });
+  constructor(private service: GoalServiceService,private modalService:NgbModal, private fb: FormBuilder ) {
+
    }
 
   ngOnInit(): void {
     this.service.findAll().subscribe((data)=>{
       this.goalList = data;
       console.log(this.goalList)
-
-      
+  
+          
       this.editForm = this.fb.group({
         goalid: [''],
         goalname: [''],
@@ -43,13 +43,16 @@ export class GoalFormComponent implements OnInit {
         date: [''],
         amount: [''],
         saved: [''],
-        userid: [''],
-        username: ['']
+        user: {
+              userid: [''], 
+              username: ['']
+        }
       } );
 
+    
     });
 
-
+  
   }
 
   findAll(){
@@ -66,18 +69,15 @@ export class GoalFormComponent implements OnInit {
     })
 }
 
+
+
 edit(goal:any){
   goal.isEdit = true;
-
+  
 }
 
-/*update(goal:Goal,id:number){
 
-this.service.editGoal(goal,goal.id).subscribe(data =>{
-  console.log('success',data)
-})
- 
-}*/
+
 
 
 
@@ -123,6 +123,7 @@ openEdit(targetModal, goal: Goal) {
    backdrop: 'static',
    size: 'lg'
  });
+
  this.editForm.patchValue({
   goalid: goal.id,  
   goalname: goal.name,
@@ -131,19 +132,18 @@ openEdit(targetModal, goal: Goal) {
   date: goal.date,
   amount: goal.amount,
   saved: goal.saved,
+  
   userid: goal.user.id,
-  username: goal.user.username,
- 
+  username: goal.user.username
+  
 
 
 });
-
+console.log(this.editForm)
 
 }
 
-fillValues(){
-    
-}
+
 
 
 }

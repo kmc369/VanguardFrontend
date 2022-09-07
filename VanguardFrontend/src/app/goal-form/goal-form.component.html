@@ -192,101 +192,101 @@
       </button>
     </div>
     <div class="modal-body">
-      <form #goalform (ngSubmit)="update(); goalform.reset()">
+      <form [formGroup]="editForm" #goalform (ngSubmit)="update(); goalform.reset()">
 
-        <div>
+        <div class="form-group">
           <mat-form-field appearance="fill">
             <mat-label>Goal Id</mat-label>
-            <input matInput type="number" name="goalid" [(ngModel)]="goal.id" />
+            <input class="form-control" matInput type="number" formControlName="goalid" />
           </mat-form-field>
         </div>
 
-        <div>
+        <div class="form-group">
         <mat-form-field appearance="fill">
           <mat-label>Goal Name</mat-label>
-          <input matInput type="text" name="goalname" [(ngModel)]="goal.name" />
+          <input class="form-control" matInput type="text" formControlName="goalname" />
         </mat-form-field>
       </div>
-        <div>
+        <div class="form-group">
           <mat-form-field appearance="fill">
             <mat-label>Textarea</mat-label>
-            <textarea
+            <textarea class="form-control"
               matInput
               type="text"
-              name="description"
-              [(ngModel)]="goal.description"
+              formControlName="description"
+          
             ></textarea>
           </mat-form-field>
         </div>
 
-        <div>
+        <div class="form-group">
           <mat-form-field appearance="fill">
             <mat-label>Image</mat-label>
-            <input matInput type="url" name="image" [(ngModel)]="goal.image" />
+            <input class="form-control" matInput type="url" formControlName="image"  />
           </mat-form-field>
         </div>
 
-        <div>
+        <div class="form-group">
           <mat-form-field appearance="fill">
             <mat-label>Date</mat-label>
-            <input matInput type="date" name="date" [(ngModel)]="goal.date" />
+            <input class="form-control" matInput type="date" formControlName="date" />
           </mat-form-field>
         </div>
 
-        <div>
+        <div class="form-group">
           <mat-form-field appearance="fill">
             <mat-label>Amount</mat-label>
-            <input
+            <input class="form-control"
               matInput
               type="number"
-              name="amount"
-              [(ngModel)]="goal.amount"
+              formControlName="amount"
+        
             />
             <span matPrefix>$&nbsp;</span>
             <span matSuffix>.00</span>
           </mat-form-field>
         </div>
 
-        <div>
+        <div class="form-group">
           <mat-form-field appearance="fill">
             <mat-label>Saved</mat-label>
-            <input
+            <input class="form-control"
               matInput
               type="number"
-              name="saved"
-              [(ngModel)]="goal.saved"
+              formControlName="saved"
+            
             />
             <span matPrefix>$&nbsp;</span>
             <span matSuffix>.00</span>
           </mat-form-field>
         </div>
 
-        <div>
+        <div class="form-group">
           <mat-form-field appearance="fill">
             <mat-label>userId</mat-label>
-            <input
+            <input class="form-control"
               matInput
               type="number"
-              name="userid"
-              [(ngModel)]="goal.user.id"
+              formControlName="userid" [value]="goal.user.id"
+           
             />
           </mat-form-field>
         </div>
 
-        <div>
+        <div class="form-group">
           <mat-form-field appearance="fill">
             <mat-label>username</mat-label>
-            <input
+            <input class="form-control"
               matInput
               type="text"
-              name="username"
-              [(ngModel)]="goal.user.username"
+              formControlName="username" [value]="goal.user.username"
+            
             />
           </mat-form-field>
         </div>
         <mat-divider></mat-divider>
         <div>
-          <button pButton (click)="fillValues()"> Fill Values</button>
+         
           <button pButton>submit</button>
         </div>
       </form>
