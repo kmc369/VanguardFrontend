@@ -6,7 +6,8 @@ import { TableModule } from 'primeng/table';
 import { getMatIconFailedToSanitizeLiteralError } from '@angular/material/icon';
 import { FormGroup, NgForm } from '@angular/forms';
 import { ignoreElements } from 'rxjs';
-
+import  { ModalDismissReasons , NgbModal } from '@ng-bootstrap/ng-bootstrap'
+import { find } from 'rxjs';
 @Component({
   selector: 'app-goal-form',
   templateUrl: './goal-form.component.html',
@@ -15,11 +16,12 @@ import { ignoreElements } from 'rxjs';
 export class GoalFormComponent implements OnInit {
 
   goalList: Array<Goal> = [];
-  id !:number;
   goal: Goal = new Goal();
-  @ViewChild('goalform') form : FormGroup;
+  id: number;
+  closeResult:String;
 
-  constructor(private service: GoalServiceService) {
+
+  constructor(private service: GoalServiceService,private modalService:NgbModal) {
 
    }
 
@@ -59,14 +61,43 @@ this.service.editGoal(goal,goal.id).subscribe(data =>{
 }*/
 
 
+
 save(goal:Goal){
   this.service.save(goal).subscribe(data =>{
     console.log
+    this.findAll()
   });
 
-}
 
-editGoal(id:number){
 
 }
+
+update(){
+
+  this.service.editGoal(this.goal).subscribe(date=> {
+    console.log(date)
+  })
+
+}
+
+open(content) {
+  this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+    this.closeResult = `Closed with: ${result}`;
+  }, (reason) => {
+    this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+  });
+}
+
+private getDismissReason(reason: any): string {
+  if (reason === ModalDismissReasons.ESC) {
+    return 'by pressing ESC';
+  } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+    return 'by clicking on a backdrop';
+  } else {
+    return `with: ${reason}`;
+  }
+}
+
+
+
 }

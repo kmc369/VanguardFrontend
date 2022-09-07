@@ -30,3 +30,11 @@ img {
 .editbutton{
   margin-right: 8px;
 }
+
+.newgoal{
+  background-color: #004a9f;
+  color:white;
+  margin-top: 15px;
+  margin-left: 10px;
+
+}

@@ -39,6 +39,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule} from '@angular/material/select';
 import { EditgoalComponent } from './editgoal/editgoal.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [
@@ -71,6 +73,8 @@ import { EditgoalComponent } from './editgoal/editgoal.component';
     ReactiveFormsModule,
     MatSelectModule,
     InputTextModule,
+    NgbModule,
+    NgbModule,
    
   ],
   providers: [],
