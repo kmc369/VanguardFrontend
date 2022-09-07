@@ -4,7 +4,7 @@ import { Goal } from '../models/Goal';
 import { BrowserModule } from '@angular/platform-browser';
 import { TableModule } from 'primeng/table';
 import { getMatIconFailedToSanitizeLiteralError } from '@angular/material/icon';
-import { FormGroup, NgForm } from '@angular/forms';
+import { FormBuilder, FormGroup, NgForm } from '@angular/forms';
 import { ignoreElements } from 'rxjs';
 import  { ModalDismissReasons , NgbModal } from '@ng-bootstrap/ng-bootstrap'
 import { find } from 'rxjs';
@@ -19,10 +19,14 @@ export class GoalFormComponent implements OnInit {
   goal: Goal = new Goal();
   id: number;
   closeResult:String;
+  editForm : FormGroup ;
 
 
-  constructor(private service: GoalServiceService,private modalService:NgbModal) {
 
+  constructor(private service: GoalServiceService,private modalService:NgbModal, private fb: FormBuilder) {
+    this.editForm = fb.group({
+      title: fb.control('initial value')
+  });
    }
 
   ngOnInit(): void {
@@ -30,7 +34,22 @@ export class GoalFormComponent implements OnInit {
       this.goalList = data;
       console.log(this.goalList)
 
+      
+      this.editForm = this.fb.group({
+        goalid: [''],
+        goalname: [''],
+        description: [''],
+        image: [''],
+        date: [''],
+        amount: [''],
+        saved: [''],
+        userid: [''],
+        username: ['']
+      } );
+
     });
+
+
   }
 
   findAll(){
@@ -98,6 +117,33 @@ private getDismissReason(reason: any): string {
   }
 }
 
+openEdit(targetModal, goal: Goal) {
+  this.modalService.open(targetModal, {
+   centered: true,
+   backdrop: 'static',
+   size: 'lg'
+ });
+ this.editForm.patchValue({
+  goalid: goal.id,  
+  goalname: goal.name,
+  description: goal.description,
+  image: goal.image,
+  date: goal.date,
+  amount: goal.amount,
+  saved: goal.saved,
+  userid: goal.user.id,
+  username: goal.user.username,
+ 
+
+
+});
+
+
+}
+
+fillValues(){
+    
+}
 
 
 }
