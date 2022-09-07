@@ -20,8 +20,21 @@ export class GoalFormComponent implements OnInit {
   goal: Goal = new Goal();
   id: number;
   closeResult:String;
-  editForm : FormGroup ;
+  //editForm : FormGroup ;
   user: User = new User();
+
+  editForm = new FormGroup({
+    goalid: new FormGroup('', Validators.required),
+    goalname: new FormGroup('', Validators.required),
+    description: new FormGroup('', Validators.required),
+    image: new FormGroup('', Validators.required),
+    date: new FormGroup('', Validators.required),
+    amount: new FormGroup('', Validators.required),
+    saved: new FormGroup('', Validators.required),
+    user: new FormGroup('', Validators.required),
+          userid: new FormGroup(''),
+          username: new FormGroup('')
+  })
 
 
 
