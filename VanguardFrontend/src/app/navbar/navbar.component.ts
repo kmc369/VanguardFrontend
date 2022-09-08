@@ -27,10 +27,7 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['editgoal'])
   }
 
-  onFileSelected(event){
-  this.selectedFile = event.target.files[0];
 
-  }
 
  
 

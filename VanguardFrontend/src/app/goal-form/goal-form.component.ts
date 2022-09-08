@@ -83,11 +83,6 @@ edit(goal:any){
   
 }
 
-
-
-
-
-
 save(goal:Goal){
   this.service.save(goal).subscribe(data =>{
     console.log(data)

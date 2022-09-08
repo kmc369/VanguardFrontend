@@ -12,14 +12,14 @@
   >
     <ng-template pTemplate="header">
       <tr>
-        <th style="color: white; background-color: #004a9f">ID</th>
-        <th style="color: white; background-color: #004a9f">Name</th>
-        <th style="color: white; background-color: #004a9f">Description</th>
-        <th style="color: white; background-color: #004a9f">Date</th>
-        <th style="color: white; background-color: #004a9f">Total</th>
-        <th style="color: white; background-color: #004a9f">saved</th>
-        <th style="color: white; background-color: #004a9f">Image</th>
-        <th style="color: white; background-color: #004a9f">Action</th>
+        <th style="color: white; background-color:green ">ID</th>
+        <th style="color: white; background-color:green ">Name</th>
+        <th style="color: white; background-color:green ">Description</th>
+        <th style="color: white; background-color:green ">Date</th>
+        <th style="color: white; background-color:green ">Total</th>
+        <th style="color: white; background-color:green ">saved</th>
+        <th style="color: white; background-color:green ">Image</th>
+        <th style="color: white; background-color:green ">Action</th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-goal>
@@ -31,7 +31,7 @@
         <td>{{ goal.amount | currency }}</td>
         <td>{{ goal.saved | currency }}</td>
         <td>
-          <img
+          <img 
             src="{{ goal.image }}"
             alt="img"
             width="110"
@@ -71,6 +71,7 @@
   <!--Lets get the new form submitted -->
 
   <ng-template #content let-modal>
+  
     <div class="modal-header">
       <h4 class="modal-title" id="modal-basic-title">Edit Goals</h4>
       <button
@@ -87,13 +88,13 @@
       <form #goalform (ngSubmit)="save(goal); goalform.reset()">
         <mat-form-field appearance="fill">
           <mat-label>Goal Name</mat-label>
-          <input matInput type="text" name="goalname" [(ngModel)]="goal.name" />
+          <input required matInput type="text" name="goalname" [(ngModel)]="goal.name" />
         </mat-form-field>
 
         <div>
           <mat-form-field appearance="fill">
             <mat-label>Textarea</mat-label>
-            <textarea
+            <textarea required
               matInput
               type="text"
               name="description"
@@ -105,21 +106,21 @@
         <div>
           <mat-form-field appearance="fill">
             <mat-label>Image</mat-label>
-            <input matInput type="url" name="image" [(ngModel)]="goal.image" />
+            <input required matInput type="url" name="image" [(ngModel)]="goal.image" />
           </mat-form-field>
         </div>
 
         <div>
           <mat-form-field appearance="fill">
             <mat-label>Date</mat-label>
-            <input matInput type="date" name="date" [(ngModel)]="goal.date" />
+            <input required matInput type="date" name="date" [(ngModel)]="goal.date" />
           </mat-form-field>
         </div>
 
         <div>
           <mat-form-field appearance="fill">
             <mat-label>Amount</mat-label>
-            <input
+            <input required
               matInput
               type="number"
               name="amount"
@@ -133,7 +134,7 @@
         <div>
           <mat-form-field appearance="fill">
             <mat-label>Saved</mat-label>
-            <input
+            <input required
               matInput
               type="number"
               name="saved"
@@ -144,30 +145,8 @@
           </mat-form-field>
         </div>
 
-        <!--  <div>
-          <mat-form-field appearance="fill">
-            <mat-label>userId</mat-label>
-            <input
-              matInput
-              type="number"
-              name="userid"
-              [value]="goal.user.id"
-            />
-          </mat-form-field>
-        </div>
-
-        <div>
-          <mat-form-field appearance="fill">
-            <mat-label>username</mat-label>
-            <input
-              matInput
-              type="text"
-              name="username"
-              [value]="goal.user.username"
-            />
-          </mat-form-field>
-        </div>
-      -->
+       
+    
         <mat-divider></mat-divider>
         <div>
           <button pButton>submit</button>
@@ -176,145 +155,12 @@
     </div>
   </ng-template>
 
-  <!-- Working Edit Form
-
-  <ng-template #contentEdit let-modal>
-    <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">Goals</h4>
-      <button
-        pButton
-        type="button"
-        class="close"
-        aria-label="Close"
-        (click)="modal.dismiss('Cross click')"
-      >
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-
-
-      <form [formGroup]="editForm"  #goalForm (ngSubmit)="update(); goalForm.reset()">
-
-       <div class="form-group">
-          <mat-form-field appearance="fill">
-            <mat-label for="id">Goal Id</mat-label>
-            <input id="id" class="form-control" matInput type="number" formControlName="id" [(ngModel)]="goal.id"/>
-          </mat-form-field>
-        </div> 
-
-
-
-     
-
-        <div class="form-group">
-        <mat-form-field appearance="fill">
-          <mat-label>Goal Name</mat-label>
-          <input class="form-control" matInput type="text" formControlName="name" [(ngModel)]="goal.name"/>
-        </mat-form-field>
-      </div>
-        <div class="form-group">
-          <mat-form-field appearance="fill">
-            <mat-label>Textarea</mat-label>
-            <textarea class="form-control"
-              matInput
-              type="text"
-              formControlName="description" [(ngModel)]="goal.description"
-          
-            ></textarea>
-          </mat-form-field>
-        </div>
-
-        <div class="form-group">
-          <mat-form-field appearance="fill">
-            <mat-label>Image</mat-label>
-            <input class="form-control" matInput type="url" formControlName="image" [(ngModel)]="goal.image" />
-          </mat-form-field>
-        </div>
-
-        <div class="form-group">
-          <mat-form-field appearance="fill">
-            <mat-label>Date</mat-label>
-            <input class="form-control" matInput type="date" formControlName="date" [(ngModel)]="goal.date" />
-          </mat-form-field>
-        </div>
-
-        <div class="form-group">
-          <mat-form-field appearance="fill">
-            <mat-label>Amount</mat-label>
-            <input class="form-control"
-              matInput
-              type="number"
-              formControlName="amount" [(ngModel)]="goal.amount"
-        
-            />
-            <span matPrefix>$&nbsp;</span>
-            <span matSuffix>.00</span>
-          </mat-form-field>
-        </div>
-
-        <div class="form-group">
-          <mat-form-field appearance="fill">
-            <mat-label>Saved</mat-label>
-            <input class="form-control"
-              matInput
-              type="number"
-              formControlName="saved" [(ngModel)]="goal.saved"
-            
-            />
-            <span matPrefix>$&nbsp;</span>
-            <span matSuffix>.00</span>
-          </mat-form-field>
-        </div>
-
-        
-
-  <div formGroupName="user">
-
-
-        <div class="form-group">
-          <mat-form-field appearance="fill">
-            <mat-label>userId</mat-label>
-            <input class="form-control"
-              matInput
-              type="number"
-              [value]="goal.user.id"
-           
-            />
-          </mat-form-field>
-        </div>
-
-        <div class="form-group">
-          <mat-form-field appearance="fill">
-            <mat-label>username</mat-label>
-            <input class="form-control"
-              matInput
-              type="text"
-             [value]="goal.user.username"
-            
-            />
-          </mat-form-field>
-        </div>
-      </div>
-     
-   
-        <mat-divider></mat-divider>
-        <div>
-         
-          <button pButton>submit</button>
-        </div>
-     
-      </form>
-    </div>
-  </ng-template>
-</div>
-
--->
 
   <ng-template #contentEdit let-modal>
     <div class="modal-header">
       <h4 class="modal-title" id="modal-basic-title">New Goal</h4>
       <button
+      pButton
         type="button"
         class="close"
         aria-label="Close"
@@ -328,20 +174,20 @@
         <div class="form-group">
           <label for="id"> Goal Id</label>
           <div class="input-group">
-            <input id="id" class="form-control" formControlName="id" />
+            <input required id="id" class="form-control" formControlName="id" />
           </div>
         </div>
 
         <div class="form-group">
           <label for="name"> Goal name</label>
           <div class="input-group">
-            <input id="name" class="form-control" formControlName="name" />
+            <input required id="name" class="form-control" formControlName="name" />
           </div>
 
           <div class="form-group">
             <label for="description">descr</label>
             <div class="input-group">
-              <input
+              <input required
                 id="description"
                 class="form-control"
                 formControlName="description"
@@ -352,28 +198,28 @@
           <div class="form-group">
             <label for="image">Image</label>
             <div class="input-group">
-              <input id="image" class="form-control" formControlName="image" />
+              <input required id="image" class="form-control" formControlName="image" />
             </div>
           </div>
 
           <div class="form-group">
             <label for="date">Date</label>
             <div class="input-group">
-              <input id="date" class="form-control" formControlName="date" />
+              <input required id="date" class="form-control" formControlName="date" />
             </div>
           </div>
 
           <div class="form-group">
             <label for="amount">Amount</label>
             <div class="input-group">
-              <input
+              <input required
                 id="amount"
                 class="form-control"
                 formControlName="amount"
               />
             </div>
           </div>
-          <!--
+          
           <div class="form-group">
             <label for="saved">saved</label>
             <div class="input-group">
@@ -381,35 +227,13 @@
             </div>
           </div>
 
-          <div formGroupName="user">
-            <div class="form-group">
-              <label for="userid"> userid</label>
-              <div class="input-group">
-                <input
-                  id="userid"
-                  class="form-control"
-                  formControlName="userid"
-                />
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="username"> username</label>
-              <div class="input-group">
-                <input
-                  id="username"
-                  class="form-control"
-                  formControlName="username"
-                />
-              </div>
-            </div>
-          
-          </div>
-        --></div>
+        
+      </div>
       </form>
     </div>
     <div class="modal-footer">
       <button
+      pButton
         type="submit"
         class="btn btn-outline-dark"
         (click)="modal.close('Save click')"
