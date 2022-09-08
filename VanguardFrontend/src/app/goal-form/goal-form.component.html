@@ -39,11 +39,7 @@
         </td>
 
         <td>
-          <button
-            class="deletebutton"
-            mat-mini-fab
-            (click)="deleteRow(goal)"
-          >
+          <button class="deletebutton" mat-mini-fab (click)="deleteRow(goal)">
             <mat-icon style="color: white">delete_forever</mat-icon>
           </button>
 
@@ -153,7 +149,7 @@
               matInput
               type="number"
               name="userid"
-              [(ngModel)]="goal.user.id"
+              [value]="goal.user.id"
             />
           </mat-form-field>
         </div>
@@ -165,7 +161,7 @@
               matInput
               type="text"
               name="username"
-              [(ngModel)]="goal.user.username"
+              [value]="goal.user.username"
             />
           </mat-form-field>
         </div>
@@ -177,7 +173,7 @@
     </div>
   </ng-template>
 
-  <!--Editing th field -->
+  <!--  
   <ng-template #contentEdit let-modal>
     <div class="modal-header">
       <h4 class="modal-title" id="modal-basic-title">Goals</h4>
@@ -197,14 +193,14 @@
         <div class="form-group">
           <mat-form-field appearance="fill">
             <mat-label>Goal Id</mat-label>
-            <input class="form-control" matInput type="number" formControlName="goalid" [(ngModel)]="goal.id"/>
+            <input class="form-control" matInput type="number" formControlName="id" [(ngModel)]="goal.id"/>
           </mat-form-field>
         </div>
 
         <div class="form-group">
         <mat-form-field appearance="fill">
           <mat-label>Goal Name</mat-label>
-          <input class="form-control" matInput type="text" formControlName="goalname" [(ngModel)]="goal.name"/>
+          <input class="form-control" matInput type="text" formControlName="name" [(ngModel)]="goal.name"/>
         </mat-form-field>
       </div>
         <div class="form-group">
@@ -213,7 +209,7 @@
             <textarea class="form-control"
               matInput
               type="text"
-              formControlName="description" [(ngModel)]="goal.description"
+              formControlName="descr" [(ngModel)]="goal.description"
           
             ></textarea>
           </mat-form-field>
@@ -296,6 +292,110 @@
         </div>
      
       </form>
+    </div>
+  </ng-template>
+</div>
+-->
+
+
+
+
+  <ng-template #contentEdit let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">New Goal</h4>
+      <button
+        type="button"
+        class="close"
+        aria-label="Close"
+        (click)="modal.dismiss('Cross click')"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+
+
+      <form [formGroup]="editForm" novalidate>
+        <div class="form-group">
+          <label for="id"> Goal Id</label>
+          <div class="input-group">
+            <input class="form-control" formControlName="id"  />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="name"> Goal name</label>
+          <div class="input-group">
+            <input class="form-control" formControlName="name" />
+          </div>
+
+          <div class="form-group">
+            <label for="descr">descr</label>
+            <div class="input-group">
+              <input class="form-control" formControlName="descr" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="image">Image</label>
+            <div class="input-group">
+              <input class="form-control" formControlName="image" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="date">Date</label>
+            <div class="input-group">
+              <input class="form-control" formControlName="date"  />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="amount">Amount</label>
+            <div class="input-group">
+              <input class="form-control" formControlName="amount"  />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="saved">saved</label>
+            <div class="input-group">
+              <input class="form-control" formControlName="saved"  />
+            </div>
+          </div>
+
+          <div formGroupName="user">
+
+            <div class="form-group">
+              <label for="userid"> userid</label>
+              <div class="input-group">
+                <input class="form-control" formControlName="userid"  />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="username"> username</label>
+              <div class="input-group">
+                <input class="form-control" formControlName="username"  />
+              </div>
+            </div>
+          </div>
+        
+          </div>
+     
+     
+     
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button
+        type="submit"
+        class="btn btn-outline-dark"
+        (click)="modal.close('Save click')"
+        (click)="onSave()"
+      >
+        submit
+      </button>
     </div>
   </ng-template>
 </div>
