@@ -15,7 +15,7 @@
       <mat-label> id</mat-label>
       <input matInput type="number" name="goalid" [(ngModel)]="goal.id" />
     </mat-form-field>
-    <br>
+    <br />
     <mat-form-field appearance="fill">
       <mat-label> Goal Name</mat-label>
       <input matInput type="text" name="goalname" [(ngModel)]="goal.name" />
@@ -49,6 +49,7 @@
       <span matSuffix>.00</span>
     </mat-form-field>
     <br />
+    <!--
     <mat-form-field appearance="fill">
       <mat-label>Saved</mat-label>
       <input matInput type="number" name="saved" [(ngModel)]="goal.saved" />
@@ -73,7 +74,7 @@
         [(ngModel)]="goal.user.username"
       />
     </mat-form-field>
-
+  -->
     <mat-divider></mat-divider>
     <button mat-raised-button class="submitbutton">
       <mat-icon>submit</mat-icon><span>Submit</span>

@@ -21,7 +21,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 export class GoalFormComponent implements OnInit {
 
   goalList: Array<Goal> = [];
-  goal: Goal = new Goal();
+  goal: Goal = new Goal()
   //id: number;
   closeResult:String;
   editForm :FormGroup;
@@ -50,10 +50,10 @@ export class GoalFormComponent implements OnInit {
     date: [' ', Validators.required],
     amount: [' ', Validators.required],
     saved: [' ', Validators.required],
-      user: this.fb.group({
+     /* user: this.fb.group({
       userid: [' ', Validators.required],
       username: [' ', Validators.required],
-    })
+    })*/
   });
 
   console.log(this.editForm)
@@ -157,11 +157,11 @@ openEdit(targetModal, goal: Goal) {
   date: goal.date,
   amount: goal.amount,
   saved: goal.saved,
-  user:{
+  /*user:{
     userid: 2,
     username: 'kmc269'
-    }
-  });
+    }*/
+  })
 
   this.findAll();
   

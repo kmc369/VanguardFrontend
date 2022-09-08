@@ -9,10 +9,10 @@ export class Goal {
   date: String
   amount: number;
   saved: number;
-  user: User;
+ 
   
   
- constructor(id=0,name=' ',description=' ',image= ' ', date: string = '2022-09-12',amount=0.00,saved=0.00, user: User=new User()){
+ constructor(id=0,name=' ',description=' ',image= ' ', date: string = '2022-09-12',amount=0.00,saved=0.00){
 
   this.id=id;
   this.name=name;
@@ -21,7 +21,7 @@ export class Goal {
   this.date=date;
   this.amount=amount;
   this.saved=saved;
-  this.user=user;
+ 
  }
 }
 
