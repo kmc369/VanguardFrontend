@@ -12,7 +12,7 @@ export class Goal {
   user: User;
   
   
- constructor(id=0,name='',description='',image= '', date: string = '2022-09-12',amount=0.00,saved=0.00, user: User=new User()){
+ constructor(id=0,name=' ',description=' ',image= ' ', date: string = '2022-09-12',amount=0.00,saved=0.00, user: User=new User()){
 
   this.id=id;
   this.name=name;
